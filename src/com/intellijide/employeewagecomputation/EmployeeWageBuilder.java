@@ -8,14 +8,15 @@ public class EmployeeWageBuilder {
     static final int IS_FULL_TIME = 2;
     static final int WORKING_DAYS_PER_MONTH = 20;
     static final int WORKING_HOURS_PER_MONTH = 100;
-    public static void main(String[] args) {
+
+    public static int calculateEmpWage(int WAGE_PER_HOUR, int WORKING_DAYS_PER_MONTH, int WORKING_HOURS_PER_MONTH) {
         System.out.println("Welcome to Employee Wage Computation Program");
         System.out.println("---------------------------------------------");
         int totatWage = 0;
         int totalWorkingHours = 0;
         int dayCount = 1;
         int workingHours = 0;
-        while(dayCount <= WORKING_DAYS_PER_MONTH && workingHours <= WORKING_HOURS_PER_MONTH){
+        while (dayCount <= WORKING_DAYS_PER_MONTH && workingHours <= WORKING_HOURS_PER_MONTH) {
             int empWage = 0;
             int empPresent = (int) Math.floor(Math.random() * 10) % 3;
             switch (empPresent) {
@@ -33,11 +34,15 @@ public class EmployeeWageBuilder {
                     System.out.println("Employee is absent");
             }
             totatWage += empWage;
-            System.out.println("Employee Daily Wage Day " +dayCount+ " => " +empWage);
+            System.out.println("Employee Daily Wage Day " + dayCount + " => " + empWage);
             dayCount++;
         }
-            System.out.println("--------------------------------------");
-            System.out.println("Total Working Hours => " +workingHours);
-            System.out.println("Total wage => " +totatWage);
+        System.out.println("--------------------------------------");
+        System.out.println("Total Working Hours => " + workingHours);
+        System.out.println("Total wage => " + totatWage);
+        return totatWage;
+    }
+    public static void main(String[] args) {
+        calculateEmpWage(20,20,75);
     }
 }
