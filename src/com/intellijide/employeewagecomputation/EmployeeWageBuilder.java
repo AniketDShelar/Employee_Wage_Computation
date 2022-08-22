@@ -3,9 +3,19 @@ package com.intellijide.employeewagecomputation;
 public class EmployeeWageBuilder {
     static final int IS_PART_TIME = 1;
     static final int IS_FULL_TIME = 2;
-    static int companyName;
-    static int totalEmpWage;
-    public static int calculateEmpWage(String companyName, int empWagePerHour, int numOfWorkingDays,int maxHoursPerMonth) {
+    private final String companyName;
+    private final int empWagePerHour;
+    private final int numOfWorkingDays;
+    private final int maxHoursPerMonth;
+
+    public EmployeeWageBuilder(String companyName, int empWagePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
+        this.companyName = companyName;
+        this.empWagePerHour = empWagePerHour;
+        this.numOfWorkingDays = numOfWorkingDays;
+        this.maxHoursPerMonth = maxHoursPerMonth;
+    }
+
+    public int calculateEmpWage() {
         System.out.println("Welcome to Employee Wage Computation Program");
         System.out.println("---------------------------------------------");
         int empHours = 0;
@@ -37,9 +47,11 @@ public class EmployeeWageBuilder {
         return totalEmpWage;
     }
     public static void main(String[] args) {
-        EmployeeWageBuilder employeeWageBuilder = new EmployeeWageBuilder();
-        calculateEmpWage("Tata",25,25,80);
-        calculateEmpWage("Dmart",20,30,90);
-        calculateEmpWage("Reliance",25,20,80);
+        EmployeeWageBuilder tata = new EmployeeWageBuilder("Tata",25,25,80);
+        EmployeeWageBuilder dmart = new EmployeeWageBuilder("Dmart",20,30,90);
+        EmployeeWageBuilder reliance = new EmployeeWageBuilder("Reliance",25,20,80);
+        tata.calculateEmpWage();
+        dmart.calculateEmpWage();
+        reliance.calculateEmpWage();
     }
 }
